@@ -32,80 +32,166 @@
 
 <header class="header">
   <div class="wrap nav">
-    <a class="brand" href="index.html">
-      <div class="logoMark" aria-hidden="true"></div>
-      <div class="brandText">
-        <strong>Artistry by MahimakanKariya</strong>
-        <span>Handcrafted props & paper installations</span>
-      </div>
-    </a>
+   <!-- =========================
+  LOGO (Brand Image)
+========================= -->
+<a class="brand" href="index.html">
+  <img src="logo.png" alt="Artistry by MahimakanKariya logo" class="logoImg">
+</a>
+
 
     <nav class="links">
       <a href="index.html">Home</a>
       <a href="gallery.html">Gallery</a>
       <a href="contact.html">Contact</a>
-      <a class="btn" href="https://wa.me/917354931816" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn" href="https://wa.me/917354931816" target="_blank" rel="noopener"> WhatsApp</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="hero">
-    <div class="wrap">
-      <div class="heroCard">
-        <div class="heroGrid">
-          <div>
-            <h1 class="hTitle">Cute, custom event props—made by hand.</h1>
-            <p class="hSub">
-              We create bows, paper props, hanging decor, and statement installations that bring your theme to life—clean, premium, and full of personality.
-            </p>
+  <!-- =========================================================
+  LANDING / HERO SECTION (Homepage anatomy start)
+  Purpose:
+  - Clear brand promise (who you are + what you do)
+  - Primary CTA (WhatsApp)
+  - Secondary CTA (Gallery)
+  - Social proof mini card (trust)
+========================================================= -->
 
-            <div class="pills">
-              <div class="pill">Custom colors & themes</div>
-              <div class="pill">Handmade finish</div>
-              <div class="pill">Props • Bows • Installations</div>
-            </div>
+<section class="heroBackdrop" id="top">
+  <div class="wrap heroStage">
 
-            <div class="heroCTA">
-              <a class="btn" href="https://wa.me/917354931816" target="_blank" rel="noopener">Get Quote on WhatsApp</a>
-              <a class="btn secondary" href="gallery.html">See Gallery</a>
-            </div>
+    <div class="heroVisualCard">
+      <div class="heroVisualGrid">
+
+        <!-- LEFT: Brand story + CTA -->
+        <div>
+          <!-- HERO HEADLINE (keyword + offer) -->
+          <h1 class="heroBigTitle">Handcrafted event props that look magical on camera.</h1>
+
+          <!-- HERO SUBTEXT (who it's for + what you make) -->
+          <p class="heroTagline">
+            We create premium bows, paper props, hanging decor, and custom installations for birthdays, weddings, and brand setups—crafted to match your theme perfectly.
+          </p>
+
+          <!-- QUICK VALUE BADGES -->
+          <div class="heroBadges">
+            <div class="heroBadge">Custom colors & themes</div>
+            <div class="heroBadge">Handmade finish</div>
+            <div class="heroBadge">Hyderabad • Bangalore</div>
           </div>
 
-          <div class="miniCard">
-            <h3>Quick enquiry</h3>
-            <p>Send your theme + date + city on WhatsApp.</p>
-            <div class="small">
-              <strong>WhatsApp:</strong> +91 73549 31816<br/>
-              <strong>Instagram:</strong> @artistrybymahimakankariya
-            </div>
+          <!-- PRIMARY + SECONDARY CTA -->
+          <div class="heroActions">
+            <a class="btn"
+               href="https://wa.me/917354931816?text=Hi%20Artistry%20by%20MahimakanKariya%20%E2%9C%A8%0A%0AI%20want%20custom%20event%20props.%0A%0ACity%3A%20%0ADate%3A%20%0ATheme%2FColors%3A%20%0AItems%20needed%3A%20%0ABudget%20range%3A%20"
+               target="_blank" rel="noopener">
+              Get Quote on WhatsApp
+            </a>
+
+            <a class="btn secondary" href="gallery.html">See Our Work</a>
           </div>
         </div>
+
+        
+        <!-- =========================
+  HERO RIGHT PANEL (IMAGE)
+  DESIGN SIZE REFERENCE:
+  - Create image at: 1200px (W) x 900px (H) [4:3]
+  - It will scale down on website automatically.
+========================= -->
+<aside class="heroMiniProof heroImageBox">
+  <img src="hero-panel.png" alt="Artistry handmade event props" class="heroPanelImg">
+</aside>
+
+
       </div>
     </div>
-  </section>
 
-  <section class="section">
-    <div class="wrap">
+  </div>
+</section>
+
+<!-- =========================================================
+  LANDING ENDS HERE
+  Next Step: Key features / Social proof / About / Final CTA
+========================================================= -->
+
+
+  <section class="section" id="what-we-make">
+  <div class="wrap">
+    <!-- =========================
+      WHAT WE MAKE / HOW IT WORKS (Illustration via code)
+      - No PNG needed
+      - Responsive
+      - Edit text anytime
+    ========================= -->
+    <div class="wmHead">
       <h2>What we make</h2>
       <p class="lead">Made-to-order pieces for events, festive setups, and custom installations.</p>
-
-      <div class="grid3">
-        <div class="card">
-          <h3>Event Props & Installations</h3>
-          <p>Paper props, hanging elements, backdrops, and statement pieces designed to match your event theme.</p>
-        </div>
-        <div class="card">
-          <h3>Handcrafted Bows & Decor</h3>
-          <p>Premium bows and decor accents for festive corners, entrances, gifting, and themed setups.</p>
-        </div>
-        <div class="card">
-          <h3>Customized Orders</h3>
-          <p>Tell us your theme + colors + size. We’ll craft a clean design that looks beautiful in photos and in-person.</p>
-        </div>
-      </div>
     </div>
-  </section>
+
+    <div class="wmFlow wmNoCard">
+ <!-- THREAD (SVG) : Connects Step 01 → 02 → 03 visually -->
+<svg class="wmThread" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
+
+  <!-- Main thread line: shaped tall so it doesn't cross Step 02 text -->
+  <path
+    d="
+      M 120 150
+      C 320 40, 520 40, 720 180
+      C 800 240, 780 300, 720 340
+      C 620 420, 420 470, 200 540
+      C 140 560, 120 580, 120 600
+    "
+    fill="none"
+    stroke="rgba(216,127,155,0.28)"   <!-- soft pink -->
+    stroke-width="3"                  <!-- thin = premium -->
+    stroke-linecap="round"            <!-- rounded ends -->
+  />
+
+  <!-- Dots: sit near the 01/02/03 badges -->
+  <!-- If dot doesn't match badge, adjust cx/cy slightly -->
+  <circle cx="120" cy="150" r="7" fill="rgba(216,127,155,0.85)" /> <!-- dot for 01 -->
+  <circle cx="720" cy="180" r="7" fill="rgba(216,127,155,0.85)" /> <!-- dot for 02 -->
+  <circle cx="120" cy="600" r="7" fill="rgba(216,127,155,0.85)" /> <!-- dot for 03 -->
+
+</svg>
+
+
+  <div class="wmStep s1">
+    <div class="wmBadge">01</div>
+    <div class="wmText">
+      <h3>Get Quote on WhatsApp</h3>
+      <p>Share your theme, date, and city for a tailored quote.</p>
+      <div class="wmNote">Share your ideas! →</div>
+    </div>
+  </div>
+
+  <div class="wmStep s2">
+    <div class="wmBadge">02</div>
+    <div class="wmText">
+      <h3>Collaborate & Plan</h3>
+      <p>We create a mini moodboard and design custom pieces that match your vibe.</p>
+      <div class="wmNote">Easy & paperless ✨</div>
+    </div>
+  </div>
+
+  <div class="wmStep s3">
+    <div class="wmBadge">03</div>
+    <div class="wmText">
+      <h3>Setup & Delivery</h3>
+      <p>We bring the vision to life with handcrafted props, delivered and set up beautifully.</p>
+      <div class="wmNote">Customized to perfection! →</div>
+    </div>
+  </div>
+
+  
+</div>
+
+  </div>
+</section>
+
 
   <section class="section">
     <div class="wrap">
