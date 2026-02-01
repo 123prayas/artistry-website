@@ -12,27 +12,52 @@
 
 *{ box-sizing:border-box; }
 body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background: radial-gradient(900px 500px at 15% 0%, rgba(255,111,179,0.12), transparent 60%),
-              radial-gradient(900px 500px at 85% 0%, rgba(124,92,255,0.12), transparent 60%),
-              var(--bg);
-  color:var(--text);
-  line-height:1.55;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.55;
+
+  /* Paper texture background – NO seams */
+  background:
+    linear-gradient(
+      rgba(255,248,251,0.82),
+      rgba(255,248,251,0.82)
+    ),
+    url("paper-texture.jpg");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
+
+
 
 a{ color:inherit; }
 .wrap{ max-width:1100px; margin:0 auto; padding:22px; }
 
+/* =========================
+  HEADER LAYOUT (prevents tall header)
+========================= */
+
 .header{
-  position:sticky; top:0; z-index:10;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,248,251,0.82);
   backdrop-filter: blur(10px);
-  background: rgba(255,247,251,0.75);
-  border-bottom:1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
+
 .nav{
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  display:flex;
+  align-items:center;         /* vertical center */
+  justify-content:space-between;
+  gap:14px;
+  min-height: 92px;           /* fixed header frame height */
+  padding: 10px 0;            /* controlled spacing */
 }
+
+
 .brand{
   display:flex; align-items:center; gap:12px; text-decoration:none;
 }
@@ -208,4 +233,391 @@ textarea{ resize: vertical; }
 .wa-float span{
   font-size: 22px;
   line-height: 1;
+}
+/* =========================================================
+  LANDING BACKDROP (playful blobs + waves like reference)
+  - Adds animated-looking shapes without images
+  - Safe for performance (pure CSS)
+========================================================= */
+
+.heroBackdrop{
+  position: relative;
+  overflow: hidden;
+  padding: 34px 0 18px;
+}
+
+.heroBackdrop::before{
+  content:"";
+  position:absolute;
+  inset:-120px -80px auto -80px;
+  height: 520px;
+  background:
+    radial-gradient(420px 240px at 18% 25%, rgba(255,95,162,0.45), transparent 62%),
+    radial-gradient(440px 260px at 55% 0%, rgba(124,92,255,0.40), transparent 60%),
+    radial-gradient(420px 240px at 92% 30%, rgba(255,177,153,0.42), transparent 62%);
+  pointer-events:none;
+  filter: blur(0px);
+}
+
+
+
+.heroStage{
+  position: relative; /* keeps content above backdrop */
+}
+
+.heroVisualCard{
+  background: rgba(255,255,255,0.82);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 10px);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroVisualCard{
+  background: rgba(255,255,255,0.68); /* lighter so texture shows */
+  backdrop-filter: blur(6px);
+}
+.card{
+  background: rgba(255,255,255,0.70);
+}
+
+
+.heroVisualGrid{
+  position:relative;
+  display:grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.heroBigTitle{
+  margin:0;
+  font-size: 46px;
+  line-height: 1.02;
+  letter-spacing: -0.8px;
+}
+
+.heroTagline{
+  margin: 12px 0 0;
+  color: var(--muted);
+  max-width: 62ch;
+  font-size: 15.5px;
+}
+
+.heroBadges{
+  margin-top: 16px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.heroBadge{
+  font-size: 12px;
+  color: var(--muted);
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.62);
+}
+
+.heroActions{
+  margin-top: 18px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.heroMiniProof{
+  background: rgba(255,255,255,0.86);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow2);
+}
+
+.heroMiniProof h3{
+  margin:0 0 8px;
+  font-size: 14px;
+}
+
+.heroMiniProof p{
+  margin:0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.heroMiniProof .small{
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .heroVisualGrid{ grid-template-columns: 1fr; }
+  .heroBigTitle{ font-size: 36px; }
+  .heroBackdrop::after{ bottom:-170px; height: 320px; }
+}
+/* =========================
+  HEADER LOGO STYLING
+========================= */
+/* =========================
+  HEADER LOGO (size + alignment)
+========================= */
+.logoImg{
+  height: 64px;     /* bigger logo */
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+/* Desktop positioning */
+.s1{ grid-column: 1; margin-top: 10px; }
+.s2{ grid-column: 2; margin-top: 90px; }
+.s3{ grid-column: 1; margin-top: 60px; }
+
+@media (max-width: 768px){
+  .logoImg{
+    height: 46px;   /* mobile */
+  }
+}
+/* =========================
+  HERO IMAGE BOX
+  Image aspect ratio: 4:3
+  Design reference: 1200 x 900 px
+========================= */
+.heroImageBox{
+  padding: 0;          /* removes extra space */
+  overflow: hidden;    /* keeps rounded corners clean */
+}
+
+.heroPanelImg{
+  width: 100%;
+  height: 100%;
+  display: block;
+  aspect-ratio: 4 / 3;     /* locks the box proportion */
+  object-fit: cover;       /* fills box nicely */
+}
+/* =========================
+  WHAT WE MAKE GRAPHIC
+  Export size (recommended): 2400W x 1350H (16:9)
+  Shows horizontally on desktop, scales on mobile
+========================= */
+.whatWeMakeGraphic{
+  margin-top: 16px;
+  border-radius: calc(var(--radius) + 10px);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: rgba(255,255,255,0.35); /* blends with paper texture */
+}
+
+.whatWeMakeImg{
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;   /* forces horizontal look */
+  object-fit: cover;
+}
+/* =========================================================
+   WHAT WE MAKE FLOW (Illustration by code)
+   - Soft pastel blobs + SVG curvy line
+   - Responsive layout
+========================================================= */
+
+.wmHead{ margin-bottom: 18px; }
+
+.wmFlow{
+  position: relative;
+  border-radius: calc(var(--radius) + 16px);
+  padding: 28px 22px 60px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.32);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow);
+}
+
+/* soft watercolor blobs behind */
+.wmFlow{
+  position: relative;
+  border-radius: calc(var(--radius) + 16px);
+  padding: 26px 22px 44px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.28);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow);
+
+  /* NEW */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 22px;
+  align-items: start;
+}
+
+
+
+
+/* Curvy line svg */
+<path d="M120,110
+         C 360,30  520,170  660,140
+         S 880,210  720,310
+         S 470,420  560,500
+         S 860,520  900,470"
+      fill="none"
+      stroke="rgba(216,127,155,0.45)"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-dasharray="2 10"/>
+
+
+/* Steps positioning on desktop */
+.wmStep{
+  position: absolute;     /* allows manual placement */
+  z-index: 3;             /* above SVG */
+  max-width: 420px;       /* prevents huge text blocks */
+}
+
+.wmBadge{
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #7a2d4a;
+  background: rgba(255,184,213,0.60);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+}
+
+
+.wmCard{
+  padding: 14px 16px;
+  border-radius: 16px;
+}
+
+
+
+.wmCard h3{
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+.wmCard p{
+  margin: 0;
+  color: rgba(0,0,0,0.68);
+}
+
+.wmNote{
+  margin-top: 10px;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  color: rgba(122,45,74,0.78);
+  font-weight: 600;
+}
+
+
+/* Manual layout positions to match “flow” feel */
+.s1{ margin-top: 70px; margin-left: 18px; }
+.s2{ margin-top: 200px; margin-left: 380px; }
+.s3{ margin-top: 500px; margin-left: 40px; }
+
+.wmFooterLine{
+  margin-top: 34px;
+  text-align: center;
+  font-weight: 700;
+  color: rgba(0,0,0,0.65);
+}
+
+/* Mobile: stack cleanly */
+/* =========================
+   WHAT WE MAKE (NO CARD) + THREAD ALIGNMENT
+========================= */
+
+.wmNoCard{
+  position: relative;
+  min-height: 900px;
+  padding: 40px 20px 70px;
+}
+
+/* Thread behind content */
+.wmThread{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+/* Content above thread */
+.wmStep, .wmFooterLine{ position: relative; z-index: 1; }
+
+/* Steps layout */
+.wmStep{
+  position: absolute;   /* IMPORTANT: we lock their positions */
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  max-width: 520px;
+}
+
+.wmText h3{ margin: 0 0 6px; font-size: 22px; }
+.wmText p{ margin: 0; color: rgba(0,0,0,0.66); line-height: 1.6; }
+.wmNote{ margin-top: 10px; font-weight: 600; font-size: 14px; color: rgba(122,45,74,0.78); }
+
+/* Badge */
+.wmBadge{
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 800;
+  color: #6b243e;
+  background: rgba(255,184,213,0.65);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+  flex: 0 0 auto;
+}
+
+/* EXACT POSITIONS (match SVG dots) */
+.s1{ left: 60px;  top: 90px; }
+.s2{ right: 80px; top: 160px; }
+.s3{ left: 60px;  bottom: 40px; }
+
+/* Footer line placement */
+.wmFooterLine{
+  position: absolute;
+  right: 120px;
+  bottom: 60px;
+  font-weight: 700;
+  color: rgba(0,0,0,0.62);
+}
+
+@media (max-width: 768px){
+  .wmNoCard{ padding: 20px 16px 34px; min-height: auto; }
+  .wmThread{ display:none; }
+
+  .wmStep{
+    position: relative;
+    max-width: 100%;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin: 16px 0;
+  }
+
+  .wmFooterLine{
+    position: relative;
+    right: auto;
+    bottom: auto;
+    text-align: center;
+    margin-top: 10px;
+  }
 }
